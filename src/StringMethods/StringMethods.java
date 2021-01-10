@@ -81,10 +81,10 @@ public class StringMethods {
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
 		int sum = 0;
-		for(int i = 0; i < s.length(); i++) {
+		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
-			if(c >= 48 && c <= 57) {
-				sum+= Character.getNumericValue(c);
+			if (c >= 48 && c <= 57) {
+				sum += Character.getNumericValue(c);
 			}
 		}
 		return sum;
@@ -92,30 +92,47 @@ public class StringMethods {
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		String[] array = s.split(substring);
+		int remaining = 0;
+
+		for (int i = 0; i < array.length; i++) {
+			remaining += array[i].length();
+		}
+
+		return (s.length() - remaining) / substring.length();
+
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		return null;
+		return Utilities.encrypt(s.getBytes(), (byte) key);
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		return null;
+		return Utilities.decrypt(s, (byte) key);
 	}
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		return 0;
+		String[] array = s.split(" ");
+		int times = 0;
+		
+		for(String string : array) {
+			if(string.endsWith(substring)) {
+				times++;
+			}
+		}
+		
+		return times;
 	}
 
 	// Given String s, return the number of characters between the first occurrence
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		return (s.lastIndexOf(substring)-substring.length()) - s.indexOf(substring);
 	}
 
 	// Return true if String s is a palindrome

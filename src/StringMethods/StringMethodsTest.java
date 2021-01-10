@@ -34,7 +34,7 @@ class StringMethodsTest {
 		assertEquals(3, StringMethods.numeralSum("a1b2c"));
 		assertEquals(45, StringMethods.numeralSum("x1x2x3x4x5x6x7x8x9x"));
 	}
-	/*
+	
 	@Test
 	void testSubstringCount() {
 		assertEquals(3, StringMethods.substringCount("subsubsub", "sub"));
@@ -73,7 +73,7 @@ class StringMethodsTest {
 		assertEquals(0, StringMethods.distance("bb", "b"));
 		
 	}
-	
+	/*
 	@Test
 	void testPalindrome() {
 		assertTrue(StringMethods.palindrome("ABA"));
